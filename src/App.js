@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { App, View } from "framework7-react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import TabPage from "./pages/TabPage";
 
-export default App;
+const f7params = {
+  name: "Vocab App",
+  view: {
+    browserHistory: true,
+  },
+  // specify routes for app
+  routes: [
+    {
+      path: "/",
+      component: TabPage,
+    },
+  ],
+};
+
+export default () => (
+  // Main Framework7 App component where we pass Framework7 params
+  <App theme="auto" {...f7params}>
+    {/* Your main view, should have "main" prop */}
+    <View main url="/" />
+  </App>
+);
